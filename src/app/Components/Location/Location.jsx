@@ -93,7 +93,7 @@ export function HoverBorderGradientDemo({ desktopLeft }) {
             "Hindu Nadar Mahal, Sivagalai, Thoothukkudi - 628753",
           );
 
-          const dates = "20260303T123000Z/20260303T153000Z";
+          const dates = "20260316T023000Z/20260316T033000Z";
 
           const finalUrl = `${baseUrl}&text=${text}&details=${details}&location=${location}&dates=${dates}`;
 
