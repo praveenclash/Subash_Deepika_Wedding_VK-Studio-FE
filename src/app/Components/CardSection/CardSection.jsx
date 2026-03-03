@@ -102,9 +102,9 @@ export function InfiniteMovingCardsDemo() {
             <div className="w-12 h-0.5 bg-pink-300 rounded-full"></div>
           </div>
 
-          {/* Main Title with Names */}
+          {/* Main Title */}
           <div className="text-4xl sm:text-5xl md:text-6xl text-gray-800 leading-tight mb-3">
-            Subash <span className="text-pink-500">&</span> Deepika
+            Wedding Wishes
           </div>
           {/* Description */}
           <p className="text-sm sm:text-base text-gray-500 max-w-2xl">
