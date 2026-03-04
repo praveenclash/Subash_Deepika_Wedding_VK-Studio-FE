@@ -15,7 +15,7 @@ function Footer() {
             height={30}
           />
           <span className="text-xl font-semibold tracking-tight">
-            VK Studio
+            VK FOTOS
           </span>
         </div>
         {/* <a
@@ -38,7 +38,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="text-neutral-500 justify-center items-center flex flex-col md:flex-row gap-1 cursor-pointer text-xs"
           >
-            <span>DEVELOPED BY</span> <span>PRAVIN_CLASH_</span>
+            <span>DEVELOPED BY PRAVIN_CLASH_</span>
           </a>
 
           <div className="flex items-center gap-6">

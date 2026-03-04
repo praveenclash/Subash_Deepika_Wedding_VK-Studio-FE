@@ -11,7 +11,7 @@ export default function Home() {
     "Become",
     "One Story",
     "Subash ♥ Deepika",
-    { title: "VK", sub: "Studio" },
+    { title: "VK", sub: "Fotos" },
   ];
 
   const images = [
@@ -27,22 +27,17 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageError, setImageError] = useState(false);
 
-  // --- SCROLL CONTROL LOGIC START ---
   useEffect(() => {
     if (!showImage) {
-      // Intro nadakkumpothu scroll-ah block pannum
       document.body.style.overflow = "hidden";
     } else {
-      // Intro mudinthu image vanthathum scroll-ah allow pannum
       document.body.style.overflow = "auto";
     }
 
-    // Component unmount aagumpothu default setting-ku thirumbum
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showImage]);
-  // --- SCROLL CONTROL LOGIC END ---
 
   useEffect(() => {
     const targetDate = new Date(2026, 2, 16);
