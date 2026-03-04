@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Subash ♥ Deepika Wedding",
     images: [
       {
-        url: "https://vk-studio-subash-deepis.vercel.app/studioLogo.jpeg", // Full URL
+        url: "https://drive.google.com/file/d/1tx4Lz5J8rypNpVjb6Qq1gNT2x0HCgjmp/view", // Full URL
         width: 1200,
         height: 630,
         alt: "Subash and Deepika Wedding",
@@ -45,7 +45,7 @@ export const metadata = {
     title: "Subash ♥ Deepika - Wedding",
     description:
       "Join us to celebrate our special day and bless us with your presence.",
-    images: ["https://vk-studio-subash-deepis.vercel.app/studioLogo.jpeg"],
+    images: ["https://drive.google.com/file/d/1tx4Lz5J8rypNpVjb6Qq1gNT2x0HCgjmp/view"],
   },
 
   // Additional Meta Tags
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://vk-studio-subash-deepis.vercel.app/studioLogo.jpeg"
+          content="https://drive.google.com/file/d/1tx4Lz5J8rypNpVjb6Qq1gNT2x0HCgjmp/view"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           name="twitter:image"
-          content="https://vk-studio-subash-deepis.vercel.app/studioLogo.jpeg"
+          content="https://drive.google.com/file/d/1tx4Lz5J8rypNpVjb6Qq1gNT2x0HCgjmp/view"
         />
       </head>
       <body className="antialiased">
