@@ -6,11 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   const introText = [
-    "Where",
-    "Two Hearts",
-    "Become",
-    "One Story",
-    "Subash ♥ Deepika",
+    "Subash ♥ Deepika" ,
     { title: "VK", sub: "Fotos" },
   ];
 
