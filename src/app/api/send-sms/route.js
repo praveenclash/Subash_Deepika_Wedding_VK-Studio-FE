@@ -16,7 +16,7 @@ export async function POST(req) {
 
     const response = await client.messages.create({
       body: message,
-      from: +13344893723,
+      from: process.env.TWILIO_PHONE_NUMBER,
       to: to_number,
     });
 
