@@ -16,8 +16,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata = {
-  // title: "Subash ♥ Deepika - Wedding",
-  title: "Focult AD ",
+  title: "Subash ♥ Deepika - Wedding",
+  // title: "Focult AD ",
   description:
     "With love in our hearts and joy in our souls, we invite you to celebrate the beautiful union of Subash and Deepika.",
   openGraph: {
