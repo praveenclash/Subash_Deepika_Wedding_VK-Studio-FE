@@ -77,8 +77,19 @@ export function InfiniteMovingCardsDemo() {
           "Content-Type": "application/json",
         },
       });
-      console.log("API Response:", response.data);
+      const smsResponse = await fetch("/api/send-sms", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to_number: +918072067574,
+          message: `✨ New Wedding Wish ✨\n\nFrom: ${formData.name}\n\nMessage: "${formData.wish}"\n\nEmail: ${formData.email || "Not provided"}\n\n💝 Thank you for your wishes!`,
+        }),
+      });
 
+      const smsData = await smsResponse.json();
+      console.log("SMS sent successfully:", smsData);
       const templateParams = {
         name: formData.name,
         email: formData.email,
@@ -86,8 +97,6 @@ export function InfiniteMovingCardsDemo() {
         to_email: formData.email,
         reply_to: formData.email,
       };
-
-      console.log("Sending email with params:", templateParams);
 
       const result = await emailjs.send(
         serviceId,
@@ -97,11 +106,6 @@ export function InfiniteMovingCardsDemo() {
       );
 
       await fetchData();
-
-      // alert(
-      //   `✨ Thank You ${formData.name}!\n\nYour wedding wish has been sent successfully! Check your email for venue details.`,
-      // );
-
       setFormData({ name: "", email: "", wish: "" });
       setIsModalOpen(false);
     } catch (error) {
@@ -110,11 +114,8 @@ export function InfiniteMovingCardsDemo() {
       if (error.response) {
         console.error("Error data:", error.response.data);
         console.error("Error status:", error.response.status);
-        // alert(`Error: ${error.response.data.error || "Failed to send wish"}`);
       } else if (error.request) {
-        // alert("No response from server. Please check your connection.");
       } else {
-        // alert("Error: " + error.message);
         setIsModalOpen(false);
       }
     } finally {

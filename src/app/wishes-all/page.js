@@ -7,6 +7,8 @@ export default function WishesAllPage() {
   const [fetchLoading, setFetchLoading] = useState(true);
   const [showError, setShowError] = useState(false);
   const [data, setData] = useState([]);
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
   const fetchData = async () => {
     setFetchLoading(true);
@@ -127,7 +129,7 @@ export default function WishesAllPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {data?.map((item, idx) => (
               <div
-                className="group relative w-full h-44 rounded-2xl border border-zinc-700 bg-black px-5 py-6 sm:px-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group relative w-full h-auto rounded-2xl border border-zinc-700 bg-black px-5 py-6 sm:px-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                 key={idx}
                 style={{
                   animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`,
