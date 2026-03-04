@@ -5,17 +5,38 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Heart, X, MapPin } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 export function InfiniteMovingCardsDemo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fetchLoading, setFetchLoading] = useState(true);
+  const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     wish: "",
   });
 
-  // Prevent scroll when modal is open
+  const fetchData = async () => {
+    setFetchLoading(true);
+    try {
+      const response = await axios.get("/api/wedding");
+      console.log("data", response.data);
+      setData(response?.data);
+    } catch (error) {
+      console.log("Error:", error);
+      setShowError(true);
+    } finally {
+      setFetchLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -40,18 +61,29 @@ export function InfiniteMovingCardsDemo() {
     setIsLoading(true);
 
     try {
-      // Email.js credentials
       const serviceId = "service_v2b2w2e";
       const templateId = "template_yi80h1p";
       const publicKey = "OLTtit1NUFJYHfNSt";
 
-      // IMPORTANT: Template variables should match your Email.js template
+      const postData = {
+        name: formData.name,
+        description: formData.wish,
+        email: formData.email,
+      };
+
+      const response = await axios.post("/api/wedding", postData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("API Response:", response.data);
+
       const templateParams = {
-        name: formData.name, // For {{name}} in template
-        email: formData.email, // For {{email}} in template (To Email)
-        wish: formData.wish, // For {{wish}} in template
-        to_email: formData.email, // Send to user's email
-        reply_to: formData.email, // Reply to user's email
+        name: formData.name,
+        email: formData.email,
+        wish: formData.wish,
+        to_email: formData.email,
+        reply_to: formData.email,
       };
 
       console.log("Sending email with params:", templateParams);
@@ -63,19 +95,27 @@ export function InfiniteMovingCardsDemo() {
         publicKey,
       );
 
-      console.log("Email sent successfully!", result.text);
-      alert(
-        `✨ Thank You ${formData.name}!\n\nYour wedding wish has been sent successfully! Check your email for venue details.`,
-      );
+      await fetchData();
 
-      // Reset form and close modal
+      // alert(
+      //   `✨ Thank You ${formData.name}!\n\nYour wedding wish has been sent successfully! Check your email for venue details.`,
+      // );
+
       setFormData({ name: "", email: "", wish: "" });
       setIsModalOpen(false);
     } catch (error) {
-      console.error("Error sending email:", error);
-      alert(
-        "❌ Failed to send your wish. Please check your internet connection and try again.",
-      );
+      console.error("Error:", error);
+
+      if (error.response) {
+        console.error("Error data:", error.response.data);
+        console.error("Error status:", error.response.status);
+        // alert(`Error: ${error.response.data.error || "Failed to send wish"}`);
+      } else if (error.request) {
+        // alert("No response from server. Please check your connection.");
+      } else {
+        // alert("Error: " + error.message);
+        setIsModalOpen(false);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -112,24 +152,32 @@ export function InfiniteMovingCardsDemo() {
           </p>
         </div>
 
-        {/* Moving Cards Component */}
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="right"
-          speed="slow"
-          pauseOnHover={true}
-        />
-
-        {/* Wish Button with Heart */}
-        <HoverBorderGradient
-          onClick={() => setIsModalOpen(true)}
-          containerClassName="rounded-full mt-10"
-          as="button"
-          className="cursor-pointer text-xs md:text-sm flex items-center space-x-2 px-6 py-2"
-        >
-          <span>Send Your Wishes</span>
-          <Heart size={15} />
-        </HoverBorderGradient>
+        {fetchLoading ? (
+          <div className="w-full gap-x-2 flex justify-center items-center">
+            <div className="w-4 h-4 bg-[#d991c2] rounded-full animate-bounce [animation-delay:-.3s] hover:scale-110 transition-transform" />
+            <div className="w-4 h-4 bg-[#9869b8] rounded-full animate-bounce [animation-delay:-.5s] hover:scale-110 transition-transform" />
+            <div className="w-4 h-4 bg-[#6756cc] rounded-full animate-bounce hover:scale-110 transition-transform" />
+          </div>
+        ) : showError ? null : (
+          <>
+            {" "}
+            <InfiniteMovingCards
+              items={data}
+              direction="right"
+              speed="fast"
+              pauseOnHover={true}
+            />
+            <HoverBorderGradient
+              onClick={() => setIsModalOpen(true)}
+              containerClassName="rounded-full mt-10"
+              as="button"
+              className="cursor-pointer text-xs md:text-sm flex items-center space-x-2 px-6 py-2"
+            >
+              <span>Send Your Wishes</span>
+              <Heart size={15} />
+            </HoverBorderGradient>
+          </>
+        )}
 
         {/* Optional: Bottom Decoration */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
@@ -243,36 +291,3 @@ export function InfiniteMovingCardsDemo() {
     </>
   );
 }
-
-const testimonials = [
-  {
-    quote:
-      "Wishing you both a lifetime of love, happiness, and togetherness. May your journey be as beautiful as the love you share.",
-    name: "Priya & Karthik",
-  },
-  {
-    quote:
-      "So happy to celebrate this special day with you! Here's to a marriage filled with laughter, adventures, and endless love.",
-    name: "Arun Kumar",
-  },
-  {
-    quote:
-      "May the bond you share today grow stronger with each passing day. Congratulations on your wedding!",
-    name: "Dr. Lakshmi",
-  },
-  {
-    quote:
-      "Wishing you a happily ever after that's even better than the fairy tales. So blessed to witness your love story.",
-    name: "Selvi & Family",
-  },
-  {
-    quote:
-      "May your life together be filled with beautiful moments, understanding, and unconditional love. Best wishes!",
-    name: "Manoj",
-  },
-  {
-    quote:
-      "So happy for both of you! May your marriage be blessed with prosperity, joy, and endless happiness.",
-    name: "Divya",
-  },
-];

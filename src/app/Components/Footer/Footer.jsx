@@ -7,7 +7,7 @@ function Footer() {
     <footer className="w-full bg-black text-white py-12 px-4 border-t border-white/10">
       <div className="mx-5 flex flex-col items-center">
         {/* Logo Section */}
-        <div className="flex cursor-pointer items-center gap-2 ">
+        <div className="flex cursor-pointer items-center gap-2 mb-5">
           <Image
             src="/Logo/studioLogo.jpeg"
             alt="Studio logo"
@@ -18,14 +18,14 @@ function Footer() {
             VK Studio
           </span>
         </div>
-        <a
+        {/* <a
           href="https://www.instagram.com/pravin_clash_/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-neutral-500 cursor-pointer text-xs my-2"
         >
           DEVELOPED BY PRAVIN_CLASH_
-        </a>
+        </a> */}
 
         {/* Divider Line */}
         <div className="w-full border-t border-dotted border-white/20 mb-8"></div>
@@ -38,7 +38,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="text-neutral-500 justify-center items-center flex flex-col md:flex-row gap-1 cursor-pointer text-xs"
           >
-            <span >DEVELOPED BY</span> <span>PRAVIN_CLASH_</span>
+            <span>DEVELOPED BY</span> <span>PRAVIN_CLASH_</span>
           </a>
 
           <div className="flex items-center gap-6">

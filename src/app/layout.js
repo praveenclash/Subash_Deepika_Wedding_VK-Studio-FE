@@ -31,6 +31,10 @@ export const metadata = {
         alt: "Subash and Deepika Wedding",
       },
     ],
+    other: {
+      "Content-Security-Policy":
+        "default-src 'self'; connect-src 'self' https://vkfotos.site;",
+    },
   },
 };
 
