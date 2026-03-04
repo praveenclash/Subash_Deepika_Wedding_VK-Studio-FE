@@ -164,7 +164,7 @@ export function InfiniteMovingCardsDemo() {
             <InfiniteMovingCards
               items={data}
               direction="right"
-              speed="fast"
+              speed="show"
               pauseOnHover={true}
             />
             <HoverBorderGradient
