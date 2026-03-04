@@ -131,13 +131,12 @@ export function InfiniteMovingCardsDemo() {
   return (
     <>
       <div className="h-auto py-10 rounded-md flex flex-col antialiased bg-gradient-to-b from-white to-pink-50/30 items-center justify-center relative overflow-hidden">
-        <div className="flex flex-col items-center text-center w-full max-w-4xl px-4 mb-12">
+        <div className="flex flex-col items-center text-center w-full max-w-4xl px-4 ">
           {/* Wedding Rings Icon or Decoration */}
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-0.5 bg-pink-300 rounded-full"></div>
             <div className="flex gap-2">
               <span className="text-3xl">💍</span>
-              <span className="text-3xl">💐</span>
             </div>
             <div className="w-12 h-0.5 bg-pink-300 rounded-full"></div>
           </div>
@@ -151,9 +150,14 @@ export function InfiniteMovingCardsDemo() {
             The beautiful wishes from those we cherish
           </p>
         </div>
-
+        <div className="flex justify-end  items-end w-full m-4">
+          {" "}
+          <p className="text-xs sm:text-base mr-9  text-gray-500 max-w-2xl">
+            View All
+          </p>
+        </div>
         {fetchLoading ? (
-          <div className="w-full gap-x-2 flex justify-center items-center">
+          <div className="w-full gap-x-2 flex justify-center mt-10  items-center">
             <div className="w-4 h-4 bg-[#d991c2] rounded-full animate-bounce [animation-delay:-.3s] hover:scale-110 transition-transform" />
             <div className="w-4 h-4 bg-[#9869b8] rounded-full animate-bounce [animation-delay:-.5s] hover:scale-110 transition-transform" />
             <div className="w-4 h-4 bg-[#6756cc] rounded-full animate-bounce hover:scale-110 transition-transform" />
