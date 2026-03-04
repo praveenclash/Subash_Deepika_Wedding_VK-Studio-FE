@@ -5,10 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function Home() {
-  const introText = [
-    "Subash ♥ Deepika" ,
-    { title: "VK", sub: "Fotos" },
-  ];
+  const introText = ["Subash ♥ Deepika", { title: "VK", sub: "Fotos" }];
 
   const images = [
     "/Images/images12.jpeg",
