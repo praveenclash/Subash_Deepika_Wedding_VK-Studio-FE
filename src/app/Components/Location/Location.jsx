@@ -38,7 +38,7 @@ export function AnimatedPinDemo() {
 
             <div className="w-full h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden mt-2 border border-white/10">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.789329578163!2d78.123456!3d8.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzknMTUuNiJOIDc4wrAwNyc1NC4yIkU!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=8.639761,77.980015&z=16&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

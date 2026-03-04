@@ -241,7 +241,6 @@ export function InfiniteMovingCardsDemo() {
                   onChange={handleInputChange}
                   placeholder="Enter your email"
                   className="w-full px-4 py-2.5 md:py-3 rounded-md font-normal bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none transition-all text-sm md:text-base"
-                  required
                   disabled={isLoading}
                 />
                 <p className="text-xs text-white/40 mt-1">
