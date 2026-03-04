@@ -1,5 +1,6 @@
 import { Montserrat, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import SimpleMusicButton from "./Components/SimpleMusicButton/SimpleMusicButton";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${cormorant.variable}`}>
       <body className="antialiased">{children}</body>
+      <SimpleMusicButton />
     </html>
   );
 }
