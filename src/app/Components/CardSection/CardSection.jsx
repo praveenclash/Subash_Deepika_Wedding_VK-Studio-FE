@@ -6,6 +6,7 @@ import { Heart, X, MapPin } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import axios from "axios";
+import Link from "next/link";
 
 export function InfiniteMovingCardsDemo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -152,9 +153,12 @@ export function InfiniteMovingCardsDemo() {
         </div>
         <div className="flex justify-end  items-end w-full m-4">
           {" "}
-          <p className="text-xs sm:text-base mr-9  text-gray-500 max-w-2xl">
+          <Link
+            href="/wishes-all"
+            className="text-xs cursor-pointer sm:text-base mr-9  text-gray-500 max-w-2xl"
+          >
             View All
-          </p>
+          </Link>
         </div>
         {fetchLoading ? (
           <div className="w-full gap-x-2 flex justify-center mt-10  items-center">
