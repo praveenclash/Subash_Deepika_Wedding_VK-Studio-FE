@@ -5,9 +5,13 @@ export async function POST(req) {
   try {
     const { to_number, message } = await req.json();
 
+    // const client = twilio(
+    //   "AC2b08795abaeac1ef1beee3beb6f20997",
+    //   "07bfaede9c9806a80b8bab5752ea5e8f",
+    // );
     const client = twilio(
-      "AC2b08795abaeac1ef1beee3beb6f20997",
-      "07bfaede9c9806a80b8bab5752ea5e8f",
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN,
     );
 
     const response = await client.messages.create({
