@@ -13,6 +13,7 @@ function Footer() {
             alt="Studio logo"
             width={30}
             height={30}
+            unoptimized
           />
           <span className="text-xl font-semibold tracking-tight">
             VK FOTOS

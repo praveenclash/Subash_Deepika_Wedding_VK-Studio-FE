@@ -22,6 +22,7 @@ export function TimelineDemo() {
               width={800}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-64 md:h-80"
+              unoptimized
             />
           </div>
         </div>
@@ -42,6 +43,7 @@ export function TimelineDemo() {
               width={400}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-48 md:h-64"
+              unoptimized
             />
             <Image
               src="/Images/images7.jpeg"
@@ -49,6 +51,7 @@ export function TimelineDemo() {
               width={400}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-48 md:h-64"
+              unoptimized
             />
           </div>
         </div>
@@ -69,6 +72,7 @@ export function TimelineDemo() {
               width={800}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-64 md:h-80"
+              unoptimized
             />
           </div>
         </div>
@@ -89,6 +93,7 @@ export function TimelineDemo() {
               width={400}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-48 md:h-64"
+              unoptimized
             />
             <Image
               src="/Images/image11.jpeg"
@@ -96,6 +101,7 @@ export function TimelineDemo() {
               width={400}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-48 md:h-64"
+              unoptimized
             />
           </div>
         </div>
@@ -119,6 +125,7 @@ export function TimelineDemo() {
               width={800}
               height={400}
               className="rounded-lg shadow-md object-cover w-full h-64 md:h-80"
+              unoptimized
             />
           </div>
         </div>

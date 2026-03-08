@@ -15,6 +15,7 @@ function MahalSection() {
           height={1080}
           className="w-full h-96 object-cover"
           priority
+          unoptimized
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>

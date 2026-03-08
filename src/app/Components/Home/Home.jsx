@@ -143,6 +143,7 @@ export default function Home() {
                       className="object-cover opacity-80"
                       priority
                       onError={handleImageError}
+                      unoptimized
                     />
                   ) : (
                     <div className="w-full h-full bg-black" />
